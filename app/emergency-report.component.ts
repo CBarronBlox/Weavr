@@ -10,7 +10,7 @@ import { HeroService }         from './hero.service';
   selector: 'my-report',
     template: `
     <div>
-      <h2>Job Application for Heroes</h2>
+      <h2>Reporting Emergency</h2>
       <dynamic-form [questions]="questions"></dynamic-form>
     </div>
   `,

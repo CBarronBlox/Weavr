@@ -18,7 +18,7 @@ var EmergencyReportComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-report',
-            template: "\n    <div>\n      <h2>Job Application for Heroes</h2>\n      <dynamic-form [questions]=\"questions\"></dynamic-form>\n    </div>\n  ",
+            template: "\n    <div>\n      <h2>Reporting Emergency</h2>\n      <dynamic-form [questions]=\"questions\"></dynamic-form>\n    </div>\n  ",
             providers: [emergency_form_service_1.EmergencyFormService]
         }), 
         __metadata('design:paramtypes', [emergency_form_service_1.EmergencyFormService])
