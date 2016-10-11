@@ -9,20 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Tour of Heroes';
+var forms_1 = require('@angular/forms');
+var QuestionControlService = (function () {
+    function QuestionControlService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n      <a routerLink=\"/emergency\" routerLinkActive=\"active\">Emergency Report</a>\n      </nav>\n    <router-outlet></router-outlet>\n\n  ",
-            styleUrls: ['app.component.css']
-        }), 
+    QuestionControlService.prototype.toFormGroup = function (questions) {
+        var group = {};
+        questions.forEach(function (question) {
+            group[question.key] = question.required ? new forms_1.FormControl(question.value || '', forms_1.Validators.required)
+                : new forms_1.FormControl(question.value || '');
+        });
+        return new forms_1.FormGroup(group);
+    };
+    QuestionControlService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], QuestionControlService);
+    return QuestionControlService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.QuestionControlService = QuestionControlService;
+//# sourceMappingURL=question-control.service.js.map

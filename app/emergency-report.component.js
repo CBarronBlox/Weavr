@@ -9,16 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var emergency_form_service_1 = require('./emergency-form.service');
 var EmergencyReportComponent = (function () {
-    function EmergencyReportComponent() {
+    function EmergencyReportComponent(service) {
+        this.questions = service.getQuestions();
     }
     EmergencyReportComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-report',
-            templateUrl: 'emrgency-report.component.html'
+            template: "\n    <div>\n      <h2>Job Application for Heroes</h2>\n      <dynamic-form [questions]=\"questions\"></dynamic-form>\n    </div>\n  ",
+            providers: [emergency_form_service_1.EmergencyFormService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [emergency_form_service_1.EmergencyFormService])
     ], EmergencyReportComponent);
     return EmergencyReportComponent;
 }());

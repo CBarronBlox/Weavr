@@ -14,8 +14,11 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var router_1 = require('@angular/router');
+var dynamic_form_component_1 = require('./dynamic-form.component');
+var dynamic_form_question_component_1 = require('./dynamic-form-question.component');
 var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
 var in_memory_data_service_1 = require('./in-memory-data.service');
+var forms_2 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard.component');
 var heroes_component_1 = require('./heroes.component');
@@ -30,7 +33,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule,
+                forms_2.FormsModule,
+                forms_1.ReactiveFormsModule,
                 http_1.HttpModule,
                 angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
                 router_1.RouterModule.forRoot([
@@ -63,7 +67,8 @@ var AppModule = (function () {
                 hero_detail_component_1.HeroDetailComponent,
                 heroes_component_1.HeroesComponent,
                 hero_search_component_1.HeroSearchComponent,
-                emergency_report_component_1.EmergencyReportComponent
+                emergency_report_component_1.EmergencyReportComponent,
+                dynamic_form_component_1.DynamicFormComponent, dynamic_form_question_component_1.DynamicFormQuestionComponent
             ],
             providers: [
                 hero_service_1.HeroService,
