@@ -1,0 +1,29 @@
+<div *ngIf="hero">
+  <h2>{{hero.name}} details!</h2>
+<div>
+  <div>
+    <label>id: </label>{{hero.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="hero.name" placeholder="name" />
+   </div>
+   <div>
+      <label>Power: </label>
+      <input [(ngModel)]="hero.specialPower" placeholder="specialPower" />
+    </div>
+    <div class="input-controls">
+    <div>
+        <label>
+            <input #cape name="hero.cape" type="radio" value="Cape" [(ngModel)]="hero.cape" />
+            Cape
+          </label>
+        <label>
+            <input #nocape name="hero.cape" type="radio"  value="NoCape" [(ngModel)]="hero.cape"/>
+            NoCape
+        </label>
+        </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
+
+

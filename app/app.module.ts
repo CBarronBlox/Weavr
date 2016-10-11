@@ -6,18 +6,18 @@ import { ReactiveFormsModule }          from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import { RouterModule }  from '@angular/router';
 
-import { DynamicFormComponent } from './dynamic-form.component';
-import { DynamicFormQuestionComponent } from './dynamic-form-question.component';
+import { DynamicFormComponent } from './dynamicForm/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './dynamicForm/dynamic-form-question.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard.component';
-import { HeroesComponent }      from './heroes.component';
-import { HeroDetailComponent }  from './hero-detail.component';
+import { DashboardComponent }   from './Dashboard/dashboard.component';
+import { HeroesComponent }      from './HeroesView/heroes.component';
+import { HeroDetailComponent }  from './HeroDetails/hero-detail.component';
 import { HeroService }          from './hero.service';
 import { HeroSearchComponent }  from './hero-search.component';
-import { EmergencyReportComponent } from './emergency-report.component';
+import { EmergencyReportComponent } from './EmergencyReport/emergency-report.component';
 
 
 
