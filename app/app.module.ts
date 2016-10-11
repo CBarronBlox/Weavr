@@ -16,6 +16,8 @@ import { HeroesComponent }      from './heroes.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroService }          from './hero.service';
 import { HeroSearchComponent }  from './hero-search.component';
+import { EmergencyReportComponent } from './emergency-report.component';
+
 
 
 @NgModule({
@@ -41,6 +43,10 @@ import { HeroSearchComponent }  from './hero-search.component';
       {
         path: 'heroes',
         component: HeroesComponent
+      },
+      {
+      path: 'emergency',
+      component: EmergencyReportComponent
       }
     ])
   ],
@@ -49,7 +55,8 @@ import { HeroSearchComponent }  from './hero-search.component';
     DashboardComponent,
     HeroDetailComponent,
     HeroesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    EmergencyReportComponent
   ],
   providers: [
     HeroService,
@@ -57,6 +64,7 @@ import { HeroSearchComponent }  from './hero-search.component';
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
+
 }
 
 

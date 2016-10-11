@@ -22,6 +22,7 @@ var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');
 var hero_service_1 = require('./hero.service');
 var hero_search_component_1 = require('./hero-search.component');
+var emergency_report_component_1 = require('./emergency-report.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -49,6 +50,10 @@ var AppModule = (function () {
                     {
                         path: 'heroes',
                         component: heroes_component_1.HeroesComponent
+                    },
+                    {
+                        path: 'emergency',
+                        component: emergency_report_component_1.EmergencyReportComponent
                     }
                 ])
             ],
@@ -57,7 +62,8 @@ var AppModule = (function () {
                 dashboard_component_1.DashboardComponent,
                 hero_detail_component_1.HeroDetailComponent,
                 heroes_component_1.HeroesComponent,
-                hero_search_component_1.HeroSearchComponent
+                hero_search_component_1.HeroSearchComponent,
+                emergency_report_component_1.EmergencyReportComponent
             ],
             providers: [
                 hero_service_1.HeroService,

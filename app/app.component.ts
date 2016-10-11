@@ -1,4 +1,4 @@
-import { Component }          from '@angular/core';
+import { Component }  from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -9,7 +9,7 @@ import { Component }          from '@angular/core';
     <nav>
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-    </nav>
+      <a routerLink="/emergency" routerLinkActive="active">Emergency Report</a>
     <router-outlet></router-outlet>
   `,
   styleUrls: ['app.component.css']

@@ -9,20 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Tour of Heroes';
+var EmergencyReportComponent = (function () {
+    function EmergencyReportComponent() {
     }
-    AppComponent = __decorate([
+    EmergencyReportComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n      <a routerLink=\"/emergency\" routerLinkActive=\"active\">Emergency Report</a>\n    <router-outlet></router-outlet>\n  ",
-            styleUrls: ['app.component.css']
+            selector: 'my-report',
+            templateUrl: 'emrgency-report.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], EmergencyReportComponent);
+    return EmergencyReportComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.EmergencyReportComponent = EmergencyReportComponent;
+//# sourceMappingURL=emergency-report.component.js.map
