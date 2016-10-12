@@ -15,7 +15,10 @@ var InMemoryDataService = (function () {
             { id: 19, name: 'Magma', specialPower: 'shoots lava' },
             { id: 20, name: 'Tornado', specialPower: 'Creates tornados' }
         ];
-        return { heroes: heroes };
+        var users = [
+            { id: 1, name: 'Conner', username: 'BlackKnight', password: 'conner12' }
+        ];
+        return { heroes: heroes, users: users };
     };
     return InMemoryDataService;
 }());

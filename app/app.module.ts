@@ -18,6 +18,9 @@ import { HeroDetailComponent }  from './HeroDetails/hero-detail.component';
 import { HeroService }          from './hero.service';
 import { HeroSearchComponent }  from './hero-search.component';
 import { EmergencyReportComponent } from './EmergencyReport/emergency-report.component';
+import { LoginComponent } from './Login/login.component';
+import { UserService } from './user.service';
+
 
 
 
@@ -30,8 +33,8 @@ import { EmergencyReportComponent } from './EmergencyReport/emergency-report.com
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
       {
-        path: '',
-        redirectTo: '/dashboard',
+        path:'' ,
+        redirectTo: 'login',
         pathMatch: 'full'
       },
       {
@@ -49,6 +52,10 @@ import { EmergencyReportComponent } from './EmergencyReport/emergency-report.com
       {
       path: 'emergency',
       component: EmergencyReportComponent
+      },
+      {
+      path: 'login',
+      component: LoginComponent
       }
     ])
   ],
@@ -59,10 +66,13 @@ import { EmergencyReportComponent } from './EmergencyReport/emergency-report.com
     HeroesComponent,
     HeroSearchComponent,
     EmergencyReportComponent,
-    DynamicFormComponent, DynamicFormQuestionComponent
+    DynamicFormComponent, 
+    DynamicFormQuestionComponent,
+    LoginComponent
   ],
   providers: [
     HeroService,
+    UserService
   ],
   bootstrap: [ AppComponent ]
 })

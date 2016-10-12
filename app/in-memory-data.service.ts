@@ -13,8 +13,13 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 19, name: 'Magma', specialPower: 'shoots lava' },
       {id: 20, name: 'Tornado', specialPower: 'Creates tornados' }
     ];
-    return {heroes};
-  }
+
+    let users = [
+    {id: 1, name: 'Conner', username: 'BlackKnight', password: 'conner12'}
+    ];
+    return {heroes, users};
+
+  } 
 }
 
 

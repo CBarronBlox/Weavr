@@ -26,6 +26,8 @@ var hero_detail_component_1 = require('./HeroDetails/hero-detail.component');
 var hero_service_1 = require('./hero.service');
 var hero_search_component_1 = require('./hero-search.component');
 var emergency_report_component_1 = require('./EmergencyReport/emergency-report.component');
+var login_component_1 = require('./Login/login.component');
+var user_service_1 = require('./user.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -40,7 +42,7 @@ var AppModule = (function () {
                 router_1.RouterModule.forRoot([
                     {
                         path: '',
-                        redirectTo: '/dashboard',
+                        redirectTo: 'login',
                         pathMatch: 'full'
                     },
                     {
@@ -58,6 +60,10 @@ var AppModule = (function () {
                     {
                         path: 'emergency',
                         component: emergency_report_component_1.EmergencyReportComponent
+                    },
+                    {
+                        path: 'login',
+                        component: login_component_1.LoginComponent
                     }
                 ])
             ],
@@ -68,10 +74,13 @@ var AppModule = (function () {
                 heroes_component_1.HeroesComponent,
                 hero_search_component_1.HeroSearchComponent,
                 emergency_report_component_1.EmergencyReportComponent,
-                dynamic_form_component_1.DynamicFormComponent, dynamic_form_question_component_1.DynamicFormQuestionComponent
+                dynamic_form_component_1.DynamicFormComponent,
+                dynamic_form_question_component_1.DynamicFormQuestionComponent,
+                login_component_1.LoginComponent
             ],
             providers: [
                 hero_service_1.HeroService,
+                user_service_1.UserService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
