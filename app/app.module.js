@@ -42,11 +42,11 @@ var AppModule = (function () {
                 router_1.RouterModule.forRoot([
                     {
                         path: '',
-                        redirectTo: 'login',
+                        redirectTo: 'Dashboard',
                         pathMatch: 'full'
                     },
                     {
-                        path: 'dashboard',
+                        path: 'Dashboard',
                         component: dashboard_component_1.DashboardComponent
                     },
                     {
@@ -62,7 +62,7 @@ var AppModule = (function () {
                         component: emergency_report_component_1.EmergencyReportComponent
                     },
                     {
-                        path: 'login',
+                        path: 'Login',
                         component: login_component_1.LoginComponent
                     }
                 ])

@@ -1,10 +1,12 @@
 import { Component, ElementRef } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
- 
+ import { AuthenticationService } from '../authentication.service';
+
 @Component({
+    moduleId: module.id,
     selector: 'login-form',
-    providers: [UserService],
+    providers: [UserService, AuthenticationService],
     template: `
         <div class="container" >
             <div class="title">
@@ -28,8 +30,7 @@ import { UserService } from '../user.service';
                 </div>
  
                 <span>{{errorMsg}}</span>
-                <button (click)="login()" 
-                    class="btn waves-effect waves-light" 
+                <button (click)="login()"  
                     type="submit" name="action">Login</button>
             </div>
         </div>
@@ -38,11 +39,11 @@ import { UserService } from '../user.service';
  
 export class LoginComponent {
  	
-	public user = User;
+	public user = new User();
     public errorMsg = '';
     
  
-    constructor(private _service: UserService) {}
+    constructor(private _service: AuthenticationService) {}
  
     login() {
         if(!this._service.login(this.user)){this.errorMsg = 'Failed to login';}

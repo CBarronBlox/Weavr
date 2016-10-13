@@ -6,9 +6,7 @@ import { Component }  from '@angular/core';
 
   template: `
     <h1>{{title}}</h1>
-    <nav>
-      <a routerLink="/login" routerLinkActuve="active">Login</a>
-
+    
     <router-outlet></router-outlet>
 
   `,

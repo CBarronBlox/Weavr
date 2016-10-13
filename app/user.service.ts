@@ -1,46 +1,58 @@
 import { Injectable }    from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { Router }            from '@angular/router';
+
 import 'rxjs/add/operator/toPromise';
 
 import { User } from './user';
 
-let users: User[]
-
 @Injectable()
 export class UserService {
+
   private headers = new Headers({'Content-Type': 'application/json'});
   private usersUrl = 'app/users';  // URL to web api
- 
-    constructor(
-    private _router: Router,
-    private http: Http){}
 
-    getUsers(): Promise<User[]> {
+  constructor(private http: Http) { }
+
+  getUsers(): Promise<User[]> {
     return this.http.get(this.usersUrl)
                .toPromise()
                .then(response => response.json().data as User[])
-               
- }
-  logout() {
-    localStorage.removeItem("user");
-    this._router.navigate(['Login']);
+               .catch(this.handleError);
   }
- 
-  login(user: User): boolean {
-    let authenticatedUser = users.find(u => u.username === user.username);
-    if (authenticatedUser && authenticatedUser.password === user.password){
-    localStorage.setItem(authenticatedUser.name, authenticatedUser.username);
-      this._router.navigate(['Dashboard']);      
-      return true;
-    }
-    return false;
- 
+
+  getUser(id: number): Promise<User> {
+    return this.getUsers()
+               .then(users => users.find(user => user.id === id));
   }
- 
-   checkCredentials(){
-    if (localStorage.getItem("user") === null){
-        this._router.navigate(['Login']);
-    }
-  } 
+
+  delete(id: number): Promise<void> {
+    const url = `${this.usersUrl}/${id}`;
+    return this.http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError);
+  }
+
+  create(name: string, username: string): Promise<User> {
+    return this.http
+      .post(this.usersUrl, JSON.stringify({name: name, username: username}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data)
+      .catch(this.handleError);
+  }
+   
+
+  update(user: User): Promise<User> {
+    const url = `${this.usersUrl}/${user.id}`;
+    return this.http
+      .put(url, JSON.stringify(user), {headers: this.headers})
+      .toPromise()
+      .then(() => user)
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
 }

@@ -12,18 +12,21 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var hero_service_1 = require('../hero.service');
 var user_service_1 = require('../user.service');
+var authentication_service_1 = require('../authentication.service');
 var DashboardComponent = (function () {
-    function DashboardComponent(router, heroService, _service) {
+    function DashboardComponent(router, heroService, _service, userService) {
         this.router = router;
         this.heroService = heroService;
         this._service = _service;
+        this.userService = userService;
         this.heroes = [];
+        this.users = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this._service.checkCredentials();
         this.heroService.getHeroes()
             .then(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
-        this._service.checkCredentials();
     };
     DashboardComponent.prototype.gotoDetail = function (hero) {
         var link = ['/detail', hero.id];
@@ -37,9 +40,10 @@ var DashboardComponent = (function () {
             moduleId: module.id,
             selector: 'my-dashboard',
             templateUrl: 'dashboard.component.html',
-            styleUrls: ['dashboard.component.css']
+            styleUrls: ['dashboard.component.css'],
+            providers: [user_service_1.UserService, authentication_service_1.AuthenticationService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, user_service_1.UserService])
+        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, authentication_service_1.AuthenticationService, user_service_1.UserService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

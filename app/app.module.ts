@@ -20,6 +20,7 @@ import { HeroSearchComponent }  from './hero-search.component';
 import { EmergencyReportComponent } from './EmergencyReport/emergency-report.component';
 import { LoginComponent } from './Login/login.component';
 import { UserService } from './user.service';
+import { AuthenticationService } from './authentication.service';
 
 
 
@@ -34,11 +35,11 @@ import { UserService } from './user.service';
     RouterModule.forRoot([
       {
         path:'' ,
-        redirectTo: 'login',
+        redirectTo: 'Dashboard',
         pathMatch: 'full'
       },
       {
-        path: 'dashboard',
+        path: 'Dashboard',
         component: DashboardComponent
       },
       {
@@ -54,7 +55,7 @@ import { UserService } from './user.service';
       component: EmergencyReportComponent
       },
       {
-      path: 'login',
+      path: 'Login',
       component: LoginComponent
       }
     ])
