@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Router }            from '@angular/router';
 
 import { Hero }                from '../hero';
 import { HeroService }         from '../hero.service';
-
+import { NavigationComponent } from '../navigation.component';
+@NgModule({
+declarations: [NavigationComponent]
+})
 @Component({
   moduleId: module.id,
   selector: 'my-heroes',
   templateUrl: 'heroes.component.html',
-  styleUrls: [ 'heroes.component.css' ]
+  styleUrls: [ 'heroes.component.css' ],
+
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];

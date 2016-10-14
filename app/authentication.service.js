@@ -11,7 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 require('rxjs/add/operator/toPromise');
-var users = [];
+var User = (function () {
+    function User(name, username, password, id) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.id = id;
+    }
+    return User;
+}());
+exports.User = User;
+var users = [
+    new User('Conner', 'black', 'conner12', 1)
+];
 var AuthenticationService = (function () {
     function AuthenticationService(_router) {
         this._router = _router;
@@ -23,7 +35,7 @@ var AuthenticationService = (function () {
     AuthenticationService.prototype.login = function (user) {
         var authenticatedUser = users.find(function (u) { return u.username === user.username; });
         if (authenticatedUser && authenticatedUser.password === user.password) {
-            localStorage.setItem(authenticatedUser.name, authenticatedUser.username);
+            localStorage.setItem('user', authenticatedUser.password);
             this._router.navigate(['Dashboard']);
             return true;
         }
@@ -32,8 +44,6 @@ var AuthenticationService = (function () {
     AuthenticationService.prototype.checkCredentials = function () {
         if (localStorage.getItem("user") === null) {
             this._router.navigate(['Login']);
-            var meeeeee = "this is working fix routing issue";
-            return meeeeee;
         }
     };
     AuthenticationService = __decorate([

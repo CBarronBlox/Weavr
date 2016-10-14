@@ -10,15 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var emergency_form_service_1 = require('./emergency-form.service');
+var navigation_component_1 = require('../navigation.component');
 var EmergencyReportComponent = (function () {
     function EmergencyReportComponent(service) {
         this.questions = service.getQuestions();
     }
     EmergencyReportComponent = __decorate([
+        core_1.NgModule({
+            declarations: [navigation_component_1.NavigationComponent]
+        }),
         core_1.Component({
             moduleId: module.id,
             selector: 'my-report',
-            template: "\n    <div>\n      <h2>Reporting Emergency</h2>\n      <dynamic-form [questions]=\"questions\"></dynamic-form>\n    </div>\n  ",
+            template: "<navigation></navigation>\n    <div>\n      <h2>Reporting Emergency</h2>\n      <dynamic-form [questions]=\"questions\"></dynamic-form>\n    </div>\n  ",
             providers: [emergency_form_service_1.EmergencyFormService]
         }), 
         __metadata('design:paramtypes', [emergency_form_service_1.EmergencyFormService])

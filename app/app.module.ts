@@ -19,10 +19,8 @@ import { HeroService }          from './hero.service';
 import { HeroSearchComponent }  from './hero-search.component';
 import { EmergencyReportComponent } from './EmergencyReport/emergency-report.component';
 import { LoginComponent } from './Login/login.component';
-import { UserService } from './user.service';
 import { AuthenticationService } from './authentication.service';
-
-
+import { NavigationComponent } from './navigation.component';
 
 
 @NgModule({
@@ -69,11 +67,12 @@ import { AuthenticationService } from './authentication.service';
     EmergencyReportComponent,
     DynamicFormComponent, 
     DynamicFormQuestionComponent,
-    LoginComponent
+    LoginComponent,
+    NavigationComponent
   ],
   providers: [
     HeroService,
-    UserService
+    AuthenticationService
   ],
   bootstrap: [ AppComponent ]
 })

@@ -11,14 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var hero_service_1 = require('../hero.service');
-var user_service_1 = require('../user.service');
 var authentication_service_1 = require('../authentication.service');
+var navigation_component_1 = require('../navigation.component');
 var DashboardComponent = (function () {
-    function DashboardComponent(router, heroService, _service, userService) {
+    function DashboardComponent(router, heroService, _service) {
         this.router = router;
         this.heroService = heroService;
         this._service = _service;
-        this.userService = userService;
         this.heroes = [];
         this.users = [];
     }
@@ -36,14 +35,17 @@ var DashboardComponent = (function () {
         this._service.logout();
     };
     DashboardComponent = __decorate([
+        core_1.NgModule({
+            declarations: [navigation_component_1.NavigationComponent]
+        }),
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-dashboard',
+            selector: 'login-form',
             templateUrl: 'dashboard.component.html',
             styleUrls: ['dashboard.component.css'],
-            providers: [user_service_1.UserService, authentication_service_1.AuthenticationService]
+            providers: [authentication_service_1.AuthenticationService],
         }), 
-        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, authentication_service_1.AuthenticationService, user_service_1.UserService])
+        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, authentication_service_1.AuthenticationService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

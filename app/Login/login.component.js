@@ -9,13 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var user_1 = require('../user');
-var user_service_1 = require('../user.service');
 var authentication_service_1 = require('../authentication.service');
+var router_1 = require('@angular/router');
 var LoginComponent = (function () {
-    function LoginComponent(_service) {
+    function LoginComponent(_service, _router) {
         this._service = _service;
-        this.user = new user_1.User();
+        this._router = _router;
+        this.user = new authentication_service_1.User('', '', '', 0);
         this.errorMsg = '';
     }
     LoginComponent.prototype.login = function () {
@@ -27,10 +27,10 @@ var LoginComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'login-form',
-            providers: [user_service_1.UserService, authentication_service_1.AuthenticationService],
-            template: "\n        <div class=\"container\" >\n            <div class=\"title\">\n                Welcome\n            </div>\n            <div class=\"panel-body\">\n                <div class=\"row\">\n                    <div class=\"input-field col s12\">\n                        <input [(ngModel)]=\"user.username\" id=\"username\" \n                            type=\"text\" class=\"validate\">\n                        <label for=\"username\">Username</label>\n                    </div>\n                </div>\n \n                <div class=\"row\">\n                    <div class=\"input-field col s12\">\n                        <input [(ngModel)]=\"user.password\" id=\"password\" \n                            type=\"password\" class=\"validate\">\n                        <label for=\"password\">Password</label>\n                    </div>\n                </div>\n \n                <span>{{errorMsg}}</span>\n                <button (click)=\"login()\"  \n                    type=\"submit\" name=\"action\">Login</button>\n            </div>\n        </div>\n    \t"
+            providers: [authentication_service_1.AuthenticationService],
+            template: "\n        <div class=\"container\" >\n            <div class=\"title\">\n                Welcome\n            </div>\n            <div class=\"panel-body\">\n                <div class=\"row\">\n                    <div class=\"input-field col s12\">\n<input [(ngModel)]=\"user.username\" id=\"username\" type=\"text\" class=\"validate\">\n<label for=\"username\">Username</label>\n    </div>\n    </div>\n \n <div class=\"row\">\n <div class=\"input-field col s12\">\n <input [(ngModel)]=\"user.password\"  type=\"password\" >\n    <label for=\"password\">Password</label>\n</div>\n     </div>\n \n <span>{{errorMsg}}</span>\n    <button (click)=\"login()\"  \n type=\"submit\" name=\"action\">Login</button>\n     </div>\n</div>\n    \t"
         }), 
-        __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
+        __metadata('design:paramtypes', [authentication_service_1.AuthenticationService, router_1.Router])
     ], LoginComponent);
     return LoginComponent;
 }());

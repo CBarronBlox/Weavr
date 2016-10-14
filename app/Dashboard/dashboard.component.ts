@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Router }            from '@angular/router';
-
-
 import { Hero }        from '../hero';
 import { HeroService } from '../hero.service';
-import { User } from '../user';
-import { UserService } from '../user.service';
-import { AuthenticationService } from '../authentication.service';
-
+import { AuthenticationService, User } from '../authentication.service';
+import { NavigationComponent } from '../navigation.component';
+@NgModule({
+declarations: [NavigationComponent]
+})
 @Component({
   moduleId: module.id,
-  selector: 'my-dashboard',
+  selector: 'login-form',
   templateUrl: 'dashboard.component.html',
   styleUrls: [ 'dashboard.component.css' ],
-  providers: [UserService, AuthenticationService]
+  providers: [AuthenticationService],
+
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
@@ -21,8 +21,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private router: Router,
     private heroService: HeroService,
-    private _service: AuthenticationService,
-    private userService: UserService) {
+    private _service: AuthenticationService) {
   }
 
   ngOnInit(): void {

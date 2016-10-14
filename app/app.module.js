@@ -27,7 +27,8 @@ var hero_service_1 = require('./hero.service');
 var hero_search_component_1 = require('./hero-search.component');
 var emergency_report_component_1 = require('./EmergencyReport/emergency-report.component');
 var login_component_1 = require('./Login/login.component');
-var user_service_1 = require('./user.service');
+var authentication_service_1 = require('./authentication.service');
+var navigation_component_1 = require('./navigation.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -76,11 +77,12 @@ var AppModule = (function () {
                 emergency_report_component_1.EmergencyReportComponent,
                 dynamic_form_component_1.DynamicFormComponent,
                 dynamic_form_question_component_1.DynamicFormQuestionComponent,
-                login_component_1.LoginComponent
+                login_component_1.LoginComponent,
+                navigation_component_1.NavigationComponent
             ],
             providers: [
                 hero_service_1.HeroService,
-                user_service_1.UserService
+                authentication_service_1.AuthenticationService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
