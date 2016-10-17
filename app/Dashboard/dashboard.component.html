@@ -1,6 +1,6 @@
 <h3>Top Heroes</h3>
 <navigation></navigation>
-<a (click)="logout()" href="#">Click Here to logout</a>
+
 <div class="grid grid-pad">
   <div *ngFor="let hero of heroes" (click)="gotoDetail(hero)" class="col-1-4">
     <div class="module hero">
@@ -9,6 +9,10 @@
   </div>
 </div>
 <hero-search></hero-search>
-
+   <h2>Wikipedia Search</h2>
+    <input #term (keyup)="search(term.value)"/>
+    <ul>
+      <li *ngFor="let item of items | async">{{item}}</li>
+    </ul>
 
 

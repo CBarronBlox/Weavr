@@ -12,15 +12,15 @@ constructor(
  public id: number){}
 }
 let users:User[] = [
-  new User ('Conner','black','conner12',1)
+  new User ('Conner','unfaded','conner12',1)
    ]
 
 @Injectable()
 export class AuthenticationService{
 
-
 constructor(private _router: Router){}
   
+
   logout() {
     localStorage.removeItem("user");
     this._router.navigate(['Login']);
@@ -29,7 +29,7 @@ constructor(private _router: Router){}
   login(user: any){
     let authenticatedUser = users.find(u => u.username === user.username);
     if (authenticatedUser && authenticatedUser.password === user.password){
-    localStorage.setItem('user', authenticatedUser.password);
+    localStorage.setItem('user', authenticatedUser.username);
       this._router.navigate(['Dashboard']);      
       return true;
     }

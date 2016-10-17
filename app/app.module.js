@@ -39,6 +39,7 @@ var AppModule = (function () {
                 forms_2.FormsModule,
                 forms_1.ReactiveFormsModule,
                 http_1.HttpModule,
+                http_1.JsonpModule,
                 angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
                 router_1.RouterModule.forRoot([
                     {

@@ -22,7 +22,7 @@ var User = (function () {
 }());
 exports.User = User;
 var users = [
-    new User('Conner', 'black', 'conner12', 1)
+    new User('Conner', 'unfaded', 'conner12', 1)
 ];
 var AuthenticationService = (function () {
     function AuthenticationService(_router) {
@@ -35,7 +35,7 @@ var AuthenticationService = (function () {
     AuthenticationService.prototype.login = function (user) {
         var authenticatedUser = users.find(function (u) { return u.username === user.username; });
         if (authenticatedUser && authenticatedUser.password === user.password) {
-            localStorage.setItem('user', authenticatedUser.password);
+            localStorage.setItem('user', authenticatedUser.username);
             this._router.navigate(['Dashboard']);
             return true;
         }

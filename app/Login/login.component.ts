@@ -1,4 +1,8 @@
-import { Component, ElementRef } from '@angular/core';  
+import { Component, ElementRef,   trigger,
+  state,
+  style,
+  transition,
+  animate } from '@angular/core';  
  import { AuthenticationService, User } from '../authentication.service';
 import { Router }            from '@angular/router';
 
@@ -6,6 +10,20 @@ import { Router }            from '@angular/router';
     moduleId: module.id,
     selector: 'login-form',
     providers: [AuthenticationService],
+     animations: [
+    trigger('loginState', [
+      state('inactive', style({
+        backgroundColor: '#eee',
+        transform: 'scale(1)'
+      })),
+      state('active',   style({
+        backgroundColor: '#cfd8dc',
+        transform: 'scale(1.1)'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ],
     template: `
         <div class="container" >
             <div class="title">
@@ -27,7 +45,7 @@ import { Router }            from '@angular/router';
      </div>
  
  <span>{{errorMsg}}</span>
-    <button (click)="login()"  
+    <button state (click)="login()" (click)= 'loginState' 
  type="submit" name="action">Login</button>
      </div>
 </div>

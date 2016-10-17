@@ -3,7 +3,7 @@ import './rxjs-extensions';
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule }          from '@angular/forms';
-import { HttpModule }    from '@angular/http';
+import { HttpModule, JsonpModule }    from '@angular/http';
 import { RouterModule }  from '@angular/router';
 
 import { DynamicFormComponent } from './dynamicForm/dynamic-form.component';
@@ -29,6 +29,7 @@ import { NavigationComponent } from './navigation.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    JsonpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
       {

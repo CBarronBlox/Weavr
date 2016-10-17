@@ -28,7 +28,21 @@ var LoginComponent = (function () {
             moduleId: module.id,
             selector: 'login-form',
             providers: [authentication_service_1.AuthenticationService],
-            template: "\n        <div class=\"container\" >\n            <div class=\"title\">\n                Welcome\n            </div>\n            <div class=\"panel-body\">\n                <div class=\"row\">\n                    <div class=\"input-field col s12\">\n<input [(ngModel)]=\"user.username\" id=\"username\" type=\"text\" class=\"validate\">\n<label for=\"username\">Username</label>\n    </div>\n    </div>\n \n <div class=\"row\">\n <div class=\"input-field col s12\">\n <input [(ngModel)]=\"user.password\"  type=\"password\" >\n    <label for=\"password\">Password</label>\n</div>\n     </div>\n \n <span>{{errorMsg}}</span>\n    <button (click)=\"login()\"  \n type=\"submit\" name=\"action\">Login</button>\n     </div>\n</div>\n    \t"
+            animations: [
+                core_1.trigger('loginState', [
+                    core_1.state('inactive', core_1.style({
+                        backgroundColor: '#eee',
+                        transform: 'scale(1)'
+                    })),
+                    core_1.state('active', core_1.style({
+                        backgroundColor: '#cfd8dc',
+                        transform: 'scale(1.1)'
+                    })),
+                    core_1.transition('inactive => active', core_1.animate('100ms ease-in')),
+                    core_1.transition('active => inactive', core_1.animate('100ms ease-out'))
+                ])
+            ],
+            template: "\n        <div class=\"container\" >\n            <div class=\"title\">\n                Welcome\n            </div>\n            <div class=\"panel-body\">\n                <div class=\"row\">\n                    <div class=\"input-field col s12\">\n<input [(ngModel)]=\"user.username\" id=\"username\" type=\"text\" class=\"validate\">\n<label for=\"username\">Username</label>\n    </div>\n    </div>\n \n <div class=\"row\">\n <div class=\"input-field col s12\">\n <input [(ngModel)]=\"user.password\"  type=\"password\" >\n    <label for=\"password\">Password</label>\n</div>\n     </div>\n \n <span>{{errorMsg}}</span>\n    <button state (click)=\"login()\" (click)= 'loginState' \n type=\"submit\" name=\"action\">Login</button>\n     </div>\n</div>\n    \t"
         }), 
         __metadata('design:paramtypes', [authentication_service_1.AuthenticationService, router_1.Router])
     ], LoginComponent);

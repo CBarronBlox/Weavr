@@ -1,6 +1,10 @@
 <div *ngIf="hero">
   <h2>{{hero.name}} details!</h2>
 <div>
+  <label>Date
+      <input [(ngModel)]="pipeBirthDate" placeholder="Hero's Birthday" type ="date"/>
+      <label>Hero's Birthday is {{ pipeBirthDate | date:"MM/dd/yy"}}
+       </label>
   <div>
     <label>id: </label>{{hero.id}}</div>
   <div>
@@ -21,9 +25,11 @@
             <input #nocape name="hero.cape" type="radio"  value="NoCape" [(ngModel)]="hero.cape"/>
             NoCape
         </label>
+    </div>
         </div>
+
   <button (click)="goBack()">Back</button>
   <button (click)="save()">Save</button>
-</div>
+
 
 

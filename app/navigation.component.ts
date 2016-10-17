@@ -1,11 +1,14 @@
 import { Component }  from '@angular/core';
+import { AuthenticationService, User } from './authentication.service';
 
 @Component({
   moduleId: module.id,
   selector: 'navigation',
 
   template: `
-    <h1>{{title}}</h1>
+  <div>
+    <a (click)="logout()" href="#">Click Here to logout</a>
+    </div>
     <nav>
     <a routerLink="/Dashboard">Dashboard</a>
     <a routerLink="/emergency">Emergency Report</a>
@@ -17,5 +20,8 @@ import { Component }  from '@angular/core';
   styleUrls: ['app.component.css']
 })
 export class NavigationComponent {
-  title = 'Tour of Heroes';
+constructor(private _service: AuthenticationService,){}
+logout() {
+   this._service.logout();
+  }
 }

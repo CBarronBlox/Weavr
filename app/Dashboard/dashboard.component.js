@@ -10,16 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var Subject_1 = require('rxjs/Subject');
 var hero_service_1 = require('../hero.service');
 var authentication_service_1 = require('../authentication.service');
 var navigation_component_1 = require('../navigation.component');
+var wikipedia_service_1 = require('../wikipedia.service');
 var DashboardComponent = (function () {
-    function DashboardComponent(router, heroService, _service) {
+    function DashboardComponent(router, heroService, _service, wikipediaService) {
+        var _this = this;
         this.router = router;
         this.heroService = heroService;
         this._service = _service;
+        this.wikipediaService = wikipediaService;
         this.heroes = [];
         this.users = [];
+        this.searchTermStream = new Subject_1.Subject();
+        this.items = this.searchTermStream
+            .debounceTime(300)
+            .distinctUntilChanged()
+            .switchMap(function (term) { return _this.wikipediaService.search(term); });
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -34,6 +43,7 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.logout = function () {
         this._service.logout();
     };
+    DashboardComponent.prototype.search = function (term) { this.searchTermStream.next(term); };
     DashboardComponent = __decorate([
         core_1.NgModule({
             declarations: [navigation_component_1.NavigationComponent]
@@ -43,9 +53,9 @@ var DashboardComponent = (function () {
             selector: 'login-form',
             templateUrl: 'dashboard.component.html',
             styleUrls: ['dashboard.component.css'],
-            providers: [authentication_service_1.AuthenticationService],
+            providers: [authentication_service_1.AuthenticationService, wikipedia_service_1.WikipediaService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, authentication_service_1.AuthenticationService])
+        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, authentication_service_1.AuthenticationService, wikipedia_service_1.WikipediaService])
     ], DashboardComponent);
     return DashboardComponent;
 }());
