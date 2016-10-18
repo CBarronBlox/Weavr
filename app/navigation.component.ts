@@ -13,6 +13,7 @@ import { AuthenticationService, User } from './authentication.service';
     <a routerLink="/Dashboard">Dashboard</a>
     <a routerLink="/emergency">Emergency Report</a>
     <a routerLink="/heroes">Heroes</a>
+    <a routerLink="/flowchart">Flowchart</a>
     </nav>
     <router-outlet></router-outlet>
 

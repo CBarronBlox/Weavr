@@ -21,6 +21,7 @@ import { EmergencyReportComponent } from './EmergencyReport/emergency-report.com
 import { LoginComponent } from './Login/login.component';
 import { AuthenticationService } from './authentication.service';
 import { NavigationComponent } from './navigation.component';
+import { FlowChartComponent } from './JsFlowChart/flow-chart.component';
 
 
 @NgModule({
@@ -57,6 +58,11 @@ import { NavigationComponent } from './navigation.component';
       path: 'Login',
       component: LoginComponent
       }
+      ,
+      {
+      path: 'flowchart',
+      component: FlowChartComponent
+      }
     ])
   ],
   declarations: [
@@ -66,10 +72,11 @@ import { NavigationComponent } from './navigation.component';
     HeroesComponent,
     HeroSearchComponent,
     EmergencyReportComponent,
-    DynamicFormComponent, 
+    DynamicFormComponent,
     DynamicFormQuestionComponent,
     LoginComponent,
-    NavigationComponent
+    NavigationComponent,
+    FlowChartComponent
   ],
   providers: [
     HeroService,
@@ -78,7 +85,7 @@ import { NavigationComponent } from './navigation.component';
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
-  
+
 }
 
 

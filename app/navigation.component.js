@@ -21,7 +21,7 @@ var NavigationComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'navigation',
-            template: "\n  <div>\n    <a (click)=\"logout()\" href=\"#\">Click Here to logout</a>\n    </div>\n    <nav>\n    <a routerLink=\"/Dashboard\">Dashboard</a>\n    <a routerLink=\"/emergency\">Emergency Report</a>\n    <a routerLink=\"/heroes\">Heroes</a>\n    </nav>\n    <router-outlet></router-outlet>\n\n  ",
+            template: "\n  <div>\n    <a (click)=\"logout()\" href=\"#\">Click Here to logout</a>\n    </div>\n    <nav>\n    <a routerLink=\"/Dashboard\">Dashboard</a>\n    <a routerLink=\"/emergency\">Emergency Report</a>\n    <a routerLink=\"/heroes\">Heroes</a>\n    <a routerLink=\"/flowchart\">Flowchart</a>\n    </nav>\n    <router-outlet></router-outlet>\n\n  ",
             styleUrls: ['app.component.css']
         }), 
         __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])

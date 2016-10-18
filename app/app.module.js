@@ -29,6 +29,7 @@ var emergency_report_component_1 = require('./EmergencyReport/emergency-report.c
 var login_component_1 = require('./Login/login.component');
 var authentication_service_1 = require('./authentication.service');
 var navigation_component_1 = require('./navigation.component');
+var flow_chart_component_1 = require('./JsFlowChart/flow-chart.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -66,6 +67,10 @@ var AppModule = (function () {
                     {
                         path: 'Login',
                         component: login_component_1.LoginComponent
+                    },
+                    {
+                        path: 'flowchart',
+                        component: flow_chart_component_1.FlowChartComponent
                     }
                 ])
             ],
@@ -79,7 +84,8 @@ var AppModule = (function () {
                 dynamic_form_component_1.DynamicFormComponent,
                 dynamic_form_question_component_1.DynamicFormQuestionComponent,
                 login_component_1.LoginComponent,
-                navigation_component_1.NavigationComponent
+                navigation_component_1.NavigationComponent,
+                flow_chart_component_1.FlowChartComponent
             ],
             providers: [
                 hero_service_1.HeroService,
