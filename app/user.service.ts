@@ -33,14 +33,13 @@ export class UserService {
       .catch(this.handleError);
   }
 
-  create(name: string, username: string): Promise<User> {
+  create(name: string): Promise<User> {
     return this.http
-      .post(this.usersUrl, JSON.stringify({name: name, username: username}), {headers: this.headers})
+      .post(this.usersUrl, JSON.stringify({name: name}), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data)
       .catch(this.handleError);
   }
-   
 
   update(user: User): Promise<User> {
     const url = `${this.usersUrl}/${user.id}`;
@@ -49,10 +48,10 @@ export class UserService {
       .toPromise()
       .then(() => user)
       .catch(this.handleError);
-  }
+  } 
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.error('An error occurred', error); 
     return Promise.reject(error.message || error);
   }
 }
