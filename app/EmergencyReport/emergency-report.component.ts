@@ -1,10 +1,11 @@
 import { Component, NgModule } from '@angular/core';
 import { Router }            from '@angular/router';
 import { EmergencyFormService } from './emergency-form.service';
-import {AuthenticationService, User } from '../authentication.service';
+import {AuthenticationService} from '../authentication.service';
 import { Hero }                from '../hero';
 import { HeroService }         from '../hero.service';
 import { NavigationComponent } from '../navigation.component';
+import { User } from '../user';
 @NgModule({
 declarations: [NavigationComponent]
 })

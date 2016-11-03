@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var authentication_service_1 = require('./authentication.service');
+var router_1 = require('@angular/router');
 var NavigationComponent = (function () {
-    function NavigationComponent(_service) {
+    function NavigationComponent(_service, _router) {
         this._service = _service;
+        this._router = _router;
     }
     NavigationComponent.prototype.logout = function () {
         this._service.logout();
@@ -21,10 +23,10 @@ var NavigationComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'navigation',
-            template: "\n  <div>\n    <a (click)=\"logout()\" href=\"#\">Click Here to logout</a>\n    </div>\n    <nav>\n    <a routerLink=\"/Dashboard\">Dashboard</a>\n    <a routerLink=\"/emergency\">Emergency Report</a>\n    <a routerLink=\"/heroes\">Heroes</a>\n    </nav>\n    <router-outlet></router-outlet>\n\n  ",
+            template: "\n  <div>\n  <button (click)= \"logout()\" href=\"#\">Log Out</button>\n    </div>\n    <nav>\n    <a routerLink=\"/FlowChart\">Flow Chart</a>\n    <a routerLink=\"/Dashboard\">Dashboard</a>\n    <a routerLink=\"/emergency\">Emergency Report</a>\n    <a routerLink=\"/heroes\">Heroes</a>\n    </nav>\n    <router-outlet></router-outlet>\n\n  ",
             styleUrls: ['app.component.css']
         }), 
-        __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
+        __metadata('design:paramtypes', [authentication_service_1.AuthenticationService, router_1.Router])
     ], NavigationComponent);
     return NavigationComponent;
 }());

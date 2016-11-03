@@ -34,9 +34,9 @@ var UserService = (function () {
             .then(function () { return null; })
             .catch(this.handleError);
     };
-    UserService.prototype.create = function (name, username) {
+    UserService.prototype.create = function (name) {
         return this.http
-            .post(this.usersUrl, JSON.stringify({ name: name, username: username }), { headers: this.headers })
+            .post(this.usersUrl, JSON.stringify({ name: name }), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
@@ -50,7 +50,7 @@ var UserService = (function () {
             .catch(this.handleError);
     };
     UserService.prototype.handleError = function (error) {
-        console.error('An error occurred', error); // for demo purposes only
+        console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
     UserService = __decorate([

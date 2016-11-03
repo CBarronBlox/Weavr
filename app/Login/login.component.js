@@ -11,11 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var authentication_service_1 = require('../authentication.service');
 var router_1 = require('@angular/router');
+var user_1 = require('../user');
+var user_service_1 = require('../user.service');
 var LoginComponent = (function () {
     function LoginComponent(_service, _router) {
         this._service = _service;
         this._router = _router;
-        this.user = new authentication_service_1.User('', '', '', 0);
+        this.user = new user_1.User();
         this.errorMsg = '';
     }
     LoginComponent.prototype.login = function () {
@@ -27,7 +29,7 @@ var LoginComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'login-form',
-            providers: [authentication_service_1.AuthenticationService],
+            providers: [authentication_service_1.AuthenticationService, user_service_1.UserService],
             animations: [
                 core_1.trigger('loginState', [
                     core_1.state('inactive', core_1.style({
@@ -42,7 +44,7 @@ var LoginComponent = (function () {
                     core_1.transition('active => inactive', core_1.animate('100ms ease-out'))
                 ])
             ],
-            template: "\n        <div class=\"container\" >\n            <div class=\"title\">\n                Welcome\n            </div>\n            <div class=\"panel-body\">\n                <div class=\"row\">\n                    <div class=\"input-field col s12\">\n<input [(ngModel)]=\"user.username\" id=\"username\" type=\"text\" class=\"validate\">\n<label for=\"username\">Username</label>\n    </div>\n    </div>\n \n <div class=\"row\">\n <div class=\"input-field col s12\">\n <input [(ngModel)]=\"user.password\"  type=\"password\" >\n    <label for=\"password\">Password</label>\n</div>\n     </div>\n \n <span>{{errorMsg}}</span>\n    <button state (click)=\"login()\" (click)= 'loginState' \n type=\"submit\" name=\"action\">Login</button>\n     </div>\n</div>\n    \t"
+            templateUrl: 'login.component.html'
         }), 
         __metadata('design:paramtypes', [authentication_service_1.AuthenticationService, router_1.Router])
     ], LoginComponent);

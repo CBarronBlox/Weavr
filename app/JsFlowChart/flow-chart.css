@@ -1,0 +1,17 @@
+.key {
+    background-color: lightgrey;
+    border: solid 1px red;
+    width: 250px;
+    font-size: small;
+    padding: 2px;
+    
+}
+button {
+    float: right;
+}
+
+.container {
+    margin: auto;
+}
+.body{
+    background-color: white;

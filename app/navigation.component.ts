@@ -1,5 +1,6 @@
 import { Component }  from '@angular/core';
-import { AuthenticationService, User } from './authentication.service';
+import { AuthenticationService} from './authentication.service';
+import { Router }            from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -7,9 +8,10 @@ import { AuthenticationService, User } from './authentication.service';
 
   template: `
   <div>
-    <a (click)="logout()" href="#">Click Here to logout</a>
+  <button (click)= "logout()" href="#">Log Out</button>
     </div>
     <nav>
+    <a routerLink="/FlowChart">Flow Chart</a>
     <a routerLink="/Dashboard">Dashboard</a>
     <a routerLink="/emergency">Emergency Report</a>
     <a routerLink="/heroes">Heroes</a>
@@ -20,8 +22,10 @@ import { AuthenticationService, User } from './authentication.service';
   styleUrls: ['app.component.css']
 })
 export class NavigationComponent {
-constructor(private _service: AuthenticationService,){}
-logout() {
-   this._service.logout();
-  }
+constructor(private _service: AuthenticationService,
+private _router: Router){}
+
+ logout() {
+        this._service.logout();
+    }
 }

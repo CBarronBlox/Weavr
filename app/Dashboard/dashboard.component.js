@@ -16,14 +16,14 @@ var authentication_service_1 = require('../authentication.service');
 var navigation_component_1 = require('../navigation.component');
 var wikipedia_service_1 = require('../wikipedia.service');
 var DashboardComponent = (function () {
-    function DashboardComponent(router, heroService, _service, wikipediaService) {
+    function DashboardComponent(router, heroService, _service, wikipediaService, _router) {
         var _this = this;
         this.router = router;
         this.heroService = heroService;
         this._service = _service;
         this.wikipediaService = wikipediaService;
+        this._router = _router;
         this.heroes = [];
-        this.users = [];
         this.searchTermStream = new Subject_1.Subject();
         this.items = this.searchTermStream
             .debounceTime(300)
@@ -55,7 +55,7 @@ var DashboardComponent = (function () {
             styleUrls: ['dashboard.component.css'],
             providers: [authentication_service_1.AuthenticationService, wikipedia_service_1.WikipediaService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, authentication_service_1.AuthenticationService, wikipedia_service_1.WikipediaService])
+        __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, authentication_service_1.AuthenticationService, wikipedia_service_1.WikipediaService, router_1.Router])
     ], DashboardComponent);
     return DashboardComponent;
 }());

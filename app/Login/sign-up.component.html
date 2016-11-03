@@ -1,0 +1,13 @@
+                    <div class="input-field col s12">
+<input [(ngModel)]="user.username" id="username" type="text">
+<label for="username">Username</label>
+    </div>
+                <div class="input-field col s12">
+<input [(ngModel)]="user.name" id="name" type="text">
+<label for="name">Name</label>
+    </div>
+                <div class="input-field col s12">
+<input [(ngModel)]="user.password" id="password" type="password">
+<label for="password">Password</label>
+    </div>
+    <button (click)="save()">Save</button>

@@ -29,6 +29,9 @@ var emergency_report_component_1 = require('./EmergencyReport/emergency-report.c
 var login_component_1 = require('./Login/login.component');
 var authentication_service_1 = require('./authentication.service');
 var navigation_component_1 = require('./navigation.component');
+var flow_chart_1 = require('./JsFlowChart/flow-chart');
+var sign_up_component_1 = require('./Login/sign-up.component');
+var user_service_1 = require('./user.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -40,7 +43,7 @@ var AppModule = (function () {
                 forms_1.ReactiveFormsModule,
                 http_1.HttpModule,
                 http_1.JsonpModule,
-                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
+                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.HeroData, in_memory_data_service_1.UserData),
                 router_1.RouterModule.forRoot([
                     {
                         path: '',
@@ -66,6 +69,14 @@ var AppModule = (function () {
                     {
                         path: 'Login',
                         component: login_component_1.LoginComponent
+                    },
+                    {
+                        path: 'FlowChart',
+                        component: flow_chart_1.FlowChartComponent
+                    },
+                    {
+                        path: "SignUp",
+                        component: sign_up_component_1.SignUpComponent
                     }
                 ])
             ],
@@ -79,11 +90,14 @@ var AppModule = (function () {
                 dynamic_form_component_1.DynamicFormComponent,
                 dynamic_form_question_component_1.DynamicFormQuestionComponent,
                 login_component_1.LoginComponent,
-                navigation_component_1.NavigationComponent
+                navigation_component_1.NavigationComponent,
+                sign_up_component_1.SignUpComponent,
+                flow_chart_1.FlowChartComponent
             ],
             providers: [
                 hero_service_1.HeroService,
-                authentication_service_1.AuthenticationService
+                authentication_service_1.AuthenticationService,
+                user_service_1.UserService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -1,8 +1,8 @@
 "use strict";
-var InMemoryDataService = (function () {
-    function InMemoryDataService() {
+var HeroData = (function () {
+    function HeroData() {
     }
-    InMemoryDataService.prototype.createDb = function () {
+    HeroData.prototype.createDb = function () {
         var heroes = [
             { id: 11, name: 'Mr. Nice', specialPower: 'Is unaturally nice' },
             { id: 12, name: 'Narco', specialPower: 'pollo' },
@@ -17,7 +17,22 @@ var InMemoryDataService = (function () {
         ];
         return { heroes: heroes };
     };
-    return InMemoryDataService;
+    ;
+    return HeroData;
 }());
-exports.InMemoryDataService = InMemoryDataService;
+exports.HeroData = HeroData;
+var UserData = (function () {
+    function UserData() {
+    }
+    UserData.prototype.createDb = function () {
+        var users = [
+            { name: 'conner', username: 'unfaded', password: 'conner12', id: 1 },
+            { name: 'new', username: 'none', password: 'to', id: 2 }
+        ];
+        return { users: users };
+    };
+    ;
+    return UserData;
+}());
+exports.UserData = UserData;
 //# sourceMappingURL=in-memory-data.service.js.map

@@ -9,7 +9,7 @@ import { RouterModule }  from '@angular/router';
 import { DynamicFormComponent } from './dynamicForm/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './dynamicForm/dynamic-form-question.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { HeroData, UserData }  from './in-memory-data.service';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent }         from './app.component';
 import { DashboardComponent }   from './Dashboard/dashboard.component';
@@ -21,7 +21,9 @@ import { EmergencyReportComponent } from './EmergencyReport/emergency-report.com
 import { LoginComponent } from './Login/login.component';
 import { AuthenticationService } from './authentication.service';
 import { NavigationComponent } from './navigation.component';
-
+import { FlowChartComponent } from './JsFlowChart/flow-chart';
+import { SignUpComponent } from './Login/sign-up.component';
+import { UserService } from './user.service';
 
 @NgModule({
   imports: [
@@ -30,7 +32,7 @@ import { NavigationComponent } from './navigation.component';
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    InMemoryWebApiModule.forRoot(HeroData, UserData),
     RouterModule.forRoot([
       {
         path:'' ,
@@ -56,6 +58,15 @@ import { NavigationComponent } from './navigation.component';
       {
       path: 'Login',
       component: LoginComponent
+      },
+      {
+      path: 'FlowChart',
+      component: FlowChartComponent
+      },
+      
+      {
+      path: "SignUp",
+      component: SignUpComponent
       }
     ])
   ],
@@ -69,16 +80,18 @@ import { NavigationComponent } from './navigation.component';
     DynamicFormComponent, 
     DynamicFormQuestionComponent,
     LoginComponent,
-    NavigationComponent
+    NavigationComponent,
+    SignUpComponent,
+    FlowChartComponent
   ],
   providers: [
     HeroService,
-    AuthenticationService
+    AuthenticationService,
+    UserService
   ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
-  
 }
 
 

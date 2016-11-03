@@ -3,10 +3,11 @@ import { Router }            from '@angular/router';
 import { Subject }          from 'rxjs/Subject';
 import { Hero }        from '../hero';
 import { HeroService } from '../hero.service';
-import { AuthenticationService, User } from '../authentication.service';
+import { AuthenticationService} from '../authentication.service';
 import { NavigationComponent } from '../navigation.component';
 import { Observable }       from 'rxjs/Observable';
 import { WikipediaService } from '../wikipedia.service';
+import { User } from '../user';
 @NgModule({
 declarations: [NavigationComponent]
 })
@@ -20,13 +21,14 @@ declarations: [NavigationComponent]
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  users: User[] = [];
+  users: User[];
   
   constructor(
     private router: Router,
     private heroService: HeroService,
     private _service: AuthenticationService,
-    private wikipediaService: WikipediaService) {}
+    private wikipediaService: WikipediaService,
+    private _router: Router) {}
 
   ngOnInit(): void {
     this._service.checkCredentials();
@@ -38,9 +40,9 @@ export class DashboardComponent implements OnInit {
     let link = ['/detail', hero.id];
     this.router.navigate(link);
   }
-  logout() {
-   this._service.logout();
-  }
+ logout() {
+        this._service.logout();
+    }
     private searchTermStream = new Subject<string>();
   search(term: string) { this.searchTermStream.next(term); }
   items: Observable<string[]> = this.searchTermStream
